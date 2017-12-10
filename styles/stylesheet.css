@@ -14,6 +14,9 @@ a {
 .wrapper {
   font-family: 'Raleway', sans-serif;
 }
+body {
+  overflow: hidden;
+}
 header {
   width: 100%;
   min-height: 80vh;
@@ -92,8 +95,9 @@ header {
   position: fixed;
   padding-top: 50px;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  overflow: hidden;
 }
 
 #lightbox::before {
@@ -111,14 +115,15 @@ header {
   width: 95%;
   max-width: 960px;
   min-height: 400px;
-  margin-top: -1000px;
+  opacity: 0;
+  margin-top: -100px;
   margin-left: auto;
   margin-right: auto;
   background-color: #d5e5e5;
   position: relative;
-  transition: 0.50s all ease-in;
-  -webkit-transition: 0.50s all ease-in;
-  -moz-transition: 0.50s all ease-in;
+  transition: 0.50s all ease-in-out;
+  -webkit-transition: 0.50s all ease-in-out;
+  -moz-transition: 0.50s all ease-in-out;
   border-radius: 5px;
 }
 #lightbox-close-button {
@@ -462,12 +467,16 @@ footer {
   }
   #lightbox {
     padding: 0px;
-    position: relative;
+
   }
   #lightbox-content-wrapper {
     width: 100%;
+    height: 100%;
     padding: 20px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     border-radius: 0px;
+
   }
   #lightbox-close-button {
     padding: 0px;
@@ -501,6 +510,19 @@ footer {
     margin: 0px;
     margin-top: 20px;
     padding: 0px;
+  }
+  .captions::before {
+    height: 100%;
+
+  }
+  .captions {
+    height: 100%;
+  }
+  .captions p:first-of-type {
+    margin-top: 20%;
+  }
+  .more-info {
+    margin-top: 50px;
   }
 
   #skills-content-wrapper {

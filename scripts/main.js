@@ -11,7 +11,6 @@
   const closeLightBoxButton = document.getElementById('close-lightbox');
   const lightBoxLinkButtons = document.getElementById('lightbox-link-buttons');
 
-
   let scrollUpButton = document.getElementById('scroll-up-button');
   let mediaQueryWidth = 768;
   let documentWidth = window.innerWidth;
@@ -56,8 +55,10 @@
     function setWidth() {
       lightBox.style.width = '0';
     }
-    lightBoxContentWrapper.style.marginTop = '-1000px';
-    let closeLight = setTimeout(setWidth, 250);
+    lightBoxContentWrapper.style.marginTop = '-100px';
+    lightBoxContentWrapper.style.opacity = '0';
+
+    let closeLight = setTimeout(setWidth, 600);
     lightBoxDescription.innerHTML = '';
 
   }
@@ -71,14 +72,10 @@
 
     let imageUrl = moreInfo[i].querySelector('img');
     button.addEventListener('click', function(){
-      offsetY = lightBox.offsetTop;
 
-
-      if (documentWidth < 768 ) {
-        setScroll(offsetY);
-      }
       lightBox.style.width = '100%';
       lightBoxContentWrapper.style.marginTop = '0px';
+      lightBoxContentWrapper.style.opacity = '1';
 
       lightBoxImage.innerHTML = '<img src = "' + imageUrl.src + '" alt = "lightbox-image">';
       lightBoxImage.innerHTML += '<p id = "lightbox-main-caption">' +'Fig: '+shortCaption.innerText + '</p>';
@@ -86,7 +83,6 @@
       lightBoxDescription.innerHTML += '<p id = "lightbox-captions">' + '<span id = "caption-title">Brief Overview: </span>'+ workDescription.innerText + '</p>';
 
       lightBoxLinkButtons.innerHTML = '<a class = "link-button" href = "'+websiteUrl.innerText+'"target = "_blank" >Visit website</a>';
-
 
     });
   }
